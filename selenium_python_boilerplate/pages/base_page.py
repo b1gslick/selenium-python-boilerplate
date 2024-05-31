@@ -1,7 +1,8 @@
-from typing import Optional, Tuple
+from typing import Optional
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+from selenium_python_boilerplate.helpers.locators import ExampleLocators
 
 class BasePage:
     def __init__(self, browser, url: str, timeout: int=10):
@@ -32,5 +33,5 @@ class BasePage:
 
         return False
 
-    def should_has_input_field(self, locator: Tuple[str, str]):
-        assert self.is_element_present(*locator)
+    def should_has_selenium_driver_icon(self):
+        assert self.is_element_present(*ExampleLocators.SELENIUM_WEBDRIVER_ICON)
