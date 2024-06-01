@@ -1,4 +1,5 @@
 import pytest
+import os
 from selenium import webdriver
 
 from selenium_python_boilerplate.helpers.loging import write_log
@@ -26,3 +27,6 @@ def browser(request):
     write_log("Quit browser")
     browser.quit()
 
+@pytest.fixture(scope="function")
+def base_url():
+    return os.environ.get("BASE_URL", "https://www.selenium.dev")
